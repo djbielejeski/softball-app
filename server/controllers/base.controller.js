@@ -2,8 +2,7 @@ module.exports.createApiController = function (model) {
   return {
     // Get All
     get: function (req, res) {
-      //res.send('GET player controller');
-      model.find(function (error, items) {
+      model.find(req.query, function (error, items) {
         if (error) return console.error(error);
         res.send(items);
       });
@@ -38,7 +37,8 @@ module.exports.createApiController = function (model) {
     },
     // Delete
     delete: function (req, res) {
-      model.findByIdAndDelete(getIdFromReq(req), function (error) {
+      var id = req.params.id.toObjectId();
+      model.findByIdAndDelete(id, function (error) {
         if (error) return console.error(error);
         res.send(res.ok);
       });

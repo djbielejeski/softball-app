@@ -1,0 +1,27 @@
+<h1>Players</h1>
+<form>
+  <input name="firstName" [(ngModel)]="newItem.firstName" placeholder="First Name" />
+  <input name="lastName" [(ngModel)]="newItem.lastName" placeholder="Last Name" />
+  <input name="emailAddress" [(ngModel)]="newItem.emailAddress" placeholder="Email Address" />
+  <input name="phoneNumber" [(ngModel)]="newItem.phoneNumber" placeholder="Phone Number" />
+  <button [disabled]="!newItemValid()" (click)="addItem()">Add</button>
+</form>
+
+<table>
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Address</th>
+    <th>Phone Number</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let item of items">
+      <td>{{ item.firstName }}</td>
+      <td>{{ item.lastName }}</td>
+      <td>{{ item.emailAddress }}</td>
+      <td>{{ item.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>

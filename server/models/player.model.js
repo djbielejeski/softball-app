@@ -16,7 +16,8 @@ var schema = new mongoose.Schema({
     type: String
   },
   emailAddress: {
-    type: String
+    type: String,
+    required: true,
   }
 });
 

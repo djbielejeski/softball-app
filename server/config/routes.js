@@ -10,7 +10,7 @@ module.exports.http = function (app) {
 
   // api
   createRoutesForPath(app, '/api/league', leagueController.controller);
-  createRoutesForPath(app, '/api/team', teamController.controller);
+  createRoutesForPath(app, '/api/teams', teamController.controller);
   createRoutesForPath(app, '/api/players', playerController.controller);
 };
 
@@ -18,5 +18,5 @@ function createRoutesForPath(app, path, controller){
   app.get(path, controller.get);
   app.get(path + '/:id', controller.getById);
   app.post(path, controller.post);
-  app.delete(path, controller.delete);
+  app.delete(path + '/:id', controller.delete);
 }

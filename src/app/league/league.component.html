@@ -1,0 +1,12 @@
+<h1>League</h1>
+<form *ngIf="newItem">
+  <input name="leagueName" [(ngModel)]="newItem.name" placeholder="League Name" />
+  <button [disabled]="!newItem.name" (click)="addItem()">Add</button>
+</form>
+
+
+<ul>
+  <li *ngFor="let item of items">
+    <a [routerLink]="['/league', item._id]">{{ item.name }}</a>
+  </li>
+</ul>
