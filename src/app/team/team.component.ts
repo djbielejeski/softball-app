@@ -30,6 +30,7 @@ export class TeamComponent implements OnInit {
     this.service.post(this.newItem).subscribe((item) => {
       // push the item to the front of the array
       this.items.unshift(item);
+      this.createNewItem();
     });
   }
 
